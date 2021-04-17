@@ -35,7 +35,9 @@ let foods = [
   and then adding the results together. 
 */
 
-//CODE HERE
+foods.forEach(function(food){
+  food.calories = food.carbs * 4 + food.protein * 4 + food.fat * 9
+})
 
 //////////////////////////////////PROBLEMS 2-4//////////////////////////////////
 /*
@@ -71,7 +73,7 @@ const products = [
     price: 1000,
   },
 ]
-//DO NOT EDIT CODE ABOVE
+//DO NOT EDIT CODE ABOVE 
 
 ////////////////////PROBLEM 2////////////////////
 /*
@@ -80,7 +82,10 @@ const products = [
   Save the copy to a new variable called 'saleProducts'.
 */
 
-//CODE HERE
+const saleProducts = products.map(function(product){
+  product.price = product.price * 0.75
+  return product
+})
 
 ////////////////////PROBLEM 3////////////////////
 /*
@@ -90,7 +95,9 @@ const products = [
   (Hint: look up the array method 'includes' on MDN)
 */
 
-//CODE HERE
+const blueProducts = saleProducts.filter(function(product){
+  return product.color.includes('blue')
+})
 
 ////////////////////PROBLEM 4////////////////////
 /*
@@ -99,7 +106,9 @@ const products = [
   Save the result to a variable called orderTotal.
 */
 
-//CODE HERE
+const orderTotal = blueProducts.reduce(function(total, product){
+  return total + product.price
+}, 0)
 
 //////////////////////////////////PROBLEMS 5-8//////////////////////////////////
 /*
@@ -129,7 +138,7 @@ const shippingInfo = {
   that combines the contactInfo and shippingInfo objects.
 */
 
-//CODE HERE
+const helensInfo = Object.assign(contactInfo, shippingInfo)
 
 ////////////////////PROBLEM 6////////////////////
 /*
@@ -138,14 +147,14 @@ const shippingInfo = {
   Overwrite the name property to 'Ellen' and the email address to 'ellen@email.com'.
 */
 
-//CODE HERE
+const ellensInfo = {...helensInfo, name: 'Ellen', email: 'ellen@email.com'}
 
 ////////////////////PROBLEM 7////////////////////
 /* 
   Save Ellen's email to a new variable using destructuring.
 */
 
-//CODE HERE
+const {email} = ellensInfo
 
 ////////////////////PROBLEM 8////////////////////
 /*
@@ -153,7 +162,7 @@ const shippingInfo = {
   from shippingInfo to new variables using destructuring.
 */
 
-//CODE HERE
+const {zipCode, state} = shippingInfo
 
 //////////////////////////////////PROBLEMS 9-11//////////////////////////////////
 /*
@@ -215,7 +224,7 @@ const userInfo = {
   using dot notation.
 */
 
-//CODE HERE
+const shouldAlert = userInfo.settings.alerts
 
 ////////////////////PROBLEM 10////////////////////
 /*
@@ -223,7 +232,7 @@ const userInfo = {
   using dot and/or bracket notation.
 */
 
-//CODE HERE
+const topic = userInfo.topics[3]
 
 ////////////////////PROBLEM 11////////////////////
 /*
@@ -231,7 +240,7 @@ const userInfo = {
   gn@rly_c0der_007's 2nd comment using dot/bracket notation.
 */
 
-//CODE HERE
+const commenterId = userInfo.comments[1].responses[0].userId
 
 ////////////////////PROBLEM 12////////////////////
 /*
@@ -250,7 +259,30 @@ const userInfo = {
       - create at least 2 kid objects
 */
 
-//CODE HERE
+const person = {
+  name: 'bom',
+  age: 32,
+  jobs: ['singer', 'tv personality', 'truck driver'],
+  birthday: function(){
+    return this.age++
+  },
+  favorites: {
+    color: 'green',
+    number: 21,
+    book: 'spring night',
+},
+  kids: [
+    {
+      name: 'echo',
+      age: 5
+    },
+    {
+      name: 'sierra',
+      age: 16
+    }
+  ]
+  
+}
 
 //////////////////////////////////PROBLEMS 13-14//////////////////////////////////
 /*
